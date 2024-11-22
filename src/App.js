@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Events from "./components/events";
+import Header from "./components/header";
+import useFetch from "./useFetch";
+import { useEffect, useState } from "react";
 
 function App() {
+  const { data, loading, error } = useFetch(
+    "https://events-app-red-two.vercel.app/events"
+  );
+
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    if(data) {
+      setFilteredData(data);
+    }
+  }, [data])
+  console.log(filteredData)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header data={data} setFilteredData={setFilteredData}/>
+      <Events filteredData={filteredData} />
     </div>
   );
 }
 
 export default App;
+
+

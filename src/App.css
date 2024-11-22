@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,80 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.card.event-type-card {
+  border-radius: 16px;
+}
+
+.event-type-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.event-type-card 
+ .text-gray6 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.event-type-card .card-text {
+  color: rgba(124,111,80,1);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 19px;
+}
+.event-type-card .card-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+}
+.card.event-type-card .card-image img {
+  border-radius: 16px 16px 0 0;
+}
+
+.speaker-card img {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 16px;
+  object-fit: cover;
+}
+.event-type-card a {
+  text-decoration: unset;
+  color: black;
+}
+
+.card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.card-icon svg {
+  fill: rgb(162, 162, 162);
+}
+.card-icon {
+  min-width: 20px;
+}
+.event-sidebar p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.event-detail img, .card.event-sidebar, .card.speaker-card {
+  border-radius: 16px;
+}
+.card.speaker-card  {
+  min-width: 220px;
+  max-width: 220px;
+}
+.card.speaker-card h6 {
+  font-size: 18px;
+  line-height: 25px;
+}
+.card.speaker-card p {
+  font-size: 14px;
+  line-height: 19px;
+  color: rgb(162, 162, 162);;
+}
+.event-tags .badge {
+  background-color: #f64060;
 }
