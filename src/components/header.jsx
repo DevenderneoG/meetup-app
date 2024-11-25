@@ -24,7 +24,7 @@ export default function Header({ data, setFilteredData }) {
                 </svg>
               </a>
             </div>
-            {pageUrl.pathname === "/events" && (
+            {pageUrl.pathname === "/" && (
               <div className="col-lg-4">
                 <SearchBar data={data} setFilteredData={setFilteredData} />
               </div>
