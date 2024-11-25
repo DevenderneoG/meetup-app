@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import useFetch from "../useFetch";
 import { useState } from "react";
 
-export default function Events({ filteredData }) {
+export default function Events({ filteredData, loading }) {
   const [selectedType, setSelectedType] = useState("Both");
   const filteredEvent =
     selectedType === "Both"
       ? filteredData
       : filteredData.filter((event) => event?.typeOfEvent === selectedType);
 
-  return (
+  return filteredEvent ? (
     <section className="py-5">
       <div className="container">
         <div className="row mb-4">
@@ -21,7 +20,7 @@ export default function Events({ filteredData }) {
               className="form-select"
               onChange={(event) => setSelectedType(event.target.value)}
             >
-              <option value="Both">Both</option>
+              <option value="Both">Online & Offline</option>
               <option value="Online">Online</option>
               <option value="Offline">Offline</option>
             </select>
@@ -29,8 +28,8 @@ export default function Events({ filteredData }) {
         </div>
         <div className="row">
           {filteredEvent?.map((event) => (
-            <div className="col-lg-4 mb-4" key={event?._id}>
-              <div className="card event-type-card shadow border-0">
+            <div className="col-lg-4 mb-5" key={event?._id}>
+              <div className="card event-type-card shadow border-0 h-100">
                 <div className="position-relative card-image">
                   <Link to={`/events/${event._id}`}>
                     <img
@@ -71,5 +70,5 @@ export default function Events({ filteredData }) {
         </div>
       </div>
     </section>
-  );
+  ) : ( loading && <p className="py-5 text-center text-black">Loading...</p>);
 }

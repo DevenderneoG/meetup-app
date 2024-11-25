@@ -16,13 +16,12 @@ function App() {
     if(data) {
       setFilteredData(data);
     }
-  }, [data])
-  console.log(filteredData)
+  }, [data]);
 
   return (
     <div className="App">
       <Header data={data} setFilteredData={setFilteredData}/>
-      <Events filteredData={filteredData} />
+      <Events filteredData={filteredData} loading={loading} />
     </div>
   );
 }
